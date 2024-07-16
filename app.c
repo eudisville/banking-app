@@ -11,12 +11,12 @@ typedef struct {
 // Fonction pour afficher les informations d'un compte
 void displayAccount(Account acc) {
     printf("Numéro de compte : %d\n", acc.accountNumber);
-    printf("Nom : %s\n", acc.name);  // Corrigé le slash
-    printf("Solde : %.2f\n", acc.balance);  // Corrigé printf
+    printf("Nom : %s\n", acc.name); 
+    printf("Solde : %.2f\n", acc.balance);  
 }
 
 // Fonction pour créer un nouveau compte
-Account createAccount(int accountNumber, char name[], float initialDeposit) {  // Corrigé le type de name
+Account createAccount(int accountNumber, char name[], float initialDeposit) {  
     Account newAccount;
     newAccount.accountNumber = accountNumber;
     strcpy(newAccount.name, name);
@@ -28,14 +28,14 @@ Account createAccount(int accountNumber, char name[], float initialDeposit) {  /
 void deposit(Account *acc, float amount) {
     if (amount > 0) {
         acc->balance += amount;
-        printf("Dépôt réussi ! Nouveau solde : %.2f\n", acc->balance);  // Corrigé printf
+        printf("Dépôt réussi ! Nouveau solde : %.2f\n", acc->balance);  
     } else {
-        printf("Le montant du dépôt doit être positif.\n");  // Corrigé printf
+        printf("Le montant du dépôt doit être positif.\n");
     }
 }
 
 // Fonction pour retirer de l'argent
-void withdraw(Account *acc, float amount) {  // Ajout de la fonction withdraw
+void withdraw(Account *acc, float amount) {  
     if (amount > 0 && amount <= acc->balance) {
         acc->balance -= amount;
         printf("Retrait réussi ! Nouveau solde : %.2f\n", acc->balance);
